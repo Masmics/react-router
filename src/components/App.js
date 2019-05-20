@@ -9,30 +9,17 @@ import Red from './Red';
 import Blue from './Blue';
 import Yellow from './Yellow';
 
-function Home() {
-  return <h1>Home{Header}</h1>;
-}
-
-// function Color({ match }) {
-//   return (
-//     <>
-//       <h1>Color {match.params.id}</h1>
-//       <Switch>
-//         <Route path="/"
-//       </Switch>
-//     </>
-//   )
-// }
-
 function Header() {
   return (
     <header>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/red">Red</Link>
-        <Link to="/blue">Blue</Link>
-        <Link to="/yellow">Yellow</Link>
-      </nav>
+      <div>
+        <nav>
+          <Link to="/">Home</Link>
+          <Link exact to="/red">Red</Link>
+          <Link exact to="/blue">Blue</Link>
+          <Link to="/yellow">Yellow</Link>
+        </nav>
+      </div>
     </header>
   );
 }
@@ -40,11 +27,12 @@ function Header() {
 export default function App() {
   return (
     <Router>
+      <Header />
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/red" component={Red} />
-        <Route exact path="/blue" component={Blue} />
-        <Route exact paht="/yellow" component={Yellow} />
+        <Route path="/Home" />
+        <Route path="/red" component={Red} />
+        <Route path="/blue" component={Blue} />
+        <Route path="/yellow" component={Yellow} />
       </Switch>
     </Router>
   );
